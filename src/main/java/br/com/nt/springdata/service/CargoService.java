@@ -1,5 +1,6 @@
 package br.com.nt.springdata.service;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
@@ -30,14 +31,17 @@ public class CargoService {
 
 	}
 
-	public void delete(Scanner scanner) {
-		System.out.println("Descricao do cargo");
-		int descricao = scanner.nextInt();
-		cargoRespository.deleteById(descricao);
+	public void deletar(Scanner scanner) {
+		System.out.println("ID Cargo");
+		int id = scanner.nextInt();
+		Optional<Cargo> descricao = cargoRespository.findById(id);
+		System.out.println("Id selecionado :: " + id + " " + descricao.get().getDescricao());
+		cargoRespository.deleteById(id);
+		System.out.println("Registro deletado");
 
 	}
 
-	public void update(Scanner scanner) {
+	public void atualizar(Scanner scanner) {
 		System.out.println("ID");
 		int id = scanner.nextInt();
 		System.out.println("Descricao do cargo");
@@ -50,4 +54,6 @@ public class CargoService {
 		cargoRespository.save(cargo);
 		System.out.println("Registro Atualizado");
 	}
+	
+	
 }

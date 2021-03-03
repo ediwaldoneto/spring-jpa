@@ -44,12 +44,12 @@ public class SpringDataApplication implements CommandLineRunner {
 			}
 			case 2: {
 
-				cargoService.update(scanner);
+				cargoService.atualizar(scanner);
 				break;
 			}
 			case 3: {
 
-				cargoService.delete(scanner);
+				cargoService.deletar(scanner);
 				break;
 			}
 			default:

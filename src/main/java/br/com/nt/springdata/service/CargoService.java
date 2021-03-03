@@ -26,5 +26,28 @@ public class CargoService {
 		Cargo cargo = new Cargo();
 		cargo.setDescricao(descricao);
 		cargoRespository.save(cargo);
+		System.out.println("Registo Salvo");
+
+	}
+
+	public void delete(Scanner scanner) {
+		System.out.println("Descricao do cargo");
+		int descricao = scanner.nextInt();
+		cargoRespository.deleteById(descricao);
+
+	}
+
+	public void update(Scanner scanner) {
+		System.out.println("ID");
+		int id = scanner.nextInt();
+		System.out.println("Descricao do cargo");
+		String descricao = scanner.next();
+		System.out.println("Id selecionado :: " + id);
+		System.out.println("Cargo informado :: " + descricao);
+		Cargo cargo = new Cargo();
+		cargo.setId(id);
+		cargo.setDescricao(descricao);
+		cargoRespository.save(cargo);
+		System.out.println("Registro Atualizado");
 	}
 }

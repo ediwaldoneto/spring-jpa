@@ -23,17 +23,36 @@ public class SpringDataApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
 		Scanner scanner = new Scanner(System.in);
 
 		while (system) {
-			System.out.println("Qual acao voce quer executar");
-			System.out.println("0-Sair");
-			System.out.println("1-Cargo");
+			System.out.println(" #####################################");
+			System.out.println(" Qual acao voce quer executar" + "\n");
+			System.out.println(" 0-Sair");
+			System.out.println(" 1-Cargo");
+			System.out.println(" 2-Atualizar");
+			System.out.println(" 3-Deletar");
 
 			int action = scanner.nextInt();
-			if (action == 1) {
-				cargoService.iniciar(scanner);
-			} else {
+
+			switch (action) {
+			case 1: {
+
+				cargoService.salvar(scanner);
+				break;
+			}
+			case 2: {
+
+				cargoService.update(scanner);
+				break;
+			}
+			case 3: {
+
+				cargoService.delete(scanner);
+				break;
+			}
+			default:
 				system = false;
 			}
 

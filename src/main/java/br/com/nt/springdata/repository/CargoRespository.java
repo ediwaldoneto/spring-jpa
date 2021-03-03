@@ -8,4 +8,5 @@ import br.com.nt.springdata.entities.Cargo;
 @Repository
 public interface CargoRespository extends CrudRepository<Cargo, Integer> {
 
+	public static void findByDesc(Cargo cargo) {}
 }

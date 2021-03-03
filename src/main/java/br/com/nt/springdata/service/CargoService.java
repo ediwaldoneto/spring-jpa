@@ -59,4 +59,12 @@ public class CargoService {
 
 	}
 
+	public void exibir() {
+		System.out.println("##### LISTA DE REGISTROS ######");
+		Iterable<Cargo> descricao = cargoRespository.findAll();
+		for (Cargo cargo : descricao) {
+			System.out.println("Id " + cargo.getId() + " Desc "+ cargo.getDescricao());
+		}
+	}
+
 }

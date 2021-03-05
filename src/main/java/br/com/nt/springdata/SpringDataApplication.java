@@ -1,6 +1,7 @@
 package br.com.nt.springdata;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +10,8 @@ import br.com.nt.springdata.service.CargoService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner {
+
+	//private static final Logger LOGGER = Logger.getLogger(SpringDataApplication.class.getName());
 
 	private boolean system = true;
 	private final CargoService cargoService;
@@ -19,6 +22,7 @@ public class SpringDataApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataApplication.class, args);
+
 	}
 
 	@Override

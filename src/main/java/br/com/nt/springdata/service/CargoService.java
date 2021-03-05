@@ -16,7 +16,7 @@ public class CargoService {
 	}
 
 	public void iniciar(Scanner scanner) {
-		// private static Logger LOGGER = Logger.getLogger("InfoLogging");
+
 		salvar(scanner);
 	}
 
@@ -54,7 +54,7 @@ public class CargoService {
 			cargoRespository.save(cargo);
 			System.out.println("Registro Atualizado");
 		} else {
-			System.out.println("Registro nao encontrado");
+			System.out.println("Registro nao encontrado para atualizacao");
 		}
 
 	}
@@ -63,7 +63,7 @@ public class CargoService {
 		System.out.println("##### LISTA DE REGISTROS ######");
 		Iterable<Cargo> descricao = cargoRespository.findAll();
 		for (Cargo cargo : descricao) {
-			System.out.println("Id " + cargo.getId() + " Desc "+ cargo.getDescricao());
+			System.out.println("Id " + cargo.getId() + " Desc " + cargo.getDescricao());
 		}
 	}
 

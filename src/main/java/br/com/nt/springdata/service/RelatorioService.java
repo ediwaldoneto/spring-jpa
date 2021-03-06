@@ -5,8 +5,8 @@ import java.util.Scanner;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UnidadeTrabalhoService {
+public class RelatorioService {
 
-	public void iniciar(Scanner scanner) {
+	public void inicar(Scanner scanner) {
 	}
 }

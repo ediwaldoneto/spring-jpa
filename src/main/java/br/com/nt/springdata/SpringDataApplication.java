@@ -39,12 +39,6 @@ public class SpringDataApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		LOGGER.info(" SpringApplication :: run :: system value :: -> " + system);
-		LOGGER.info(" SpringApplication :: this.cargoService :: -> " + cargoService);
-		LOGGER.info(" SpringApplication :: this.funcionarioService :: -> " + funcionarioService);
-		LOGGER.info(" SpringApplication :: this.unidadeTrabalhoService :: -> " + unidadeTrabalhoService);
-		LOGGER.info(" SpringApplication :: this.relatorioService :: -> " + relatorioService);
-
 		Scanner scanner = new Scanner(System.in);
 
 		while (system) {
@@ -60,24 +54,24 @@ public class SpringDataApplication implements CommandLineRunner {
 
 			switch (opcao) {
 			case 1: {
-				// LOGGER.info(" SpringApplication :: digitou opção -> " + opcao);
+
 				cargoService.iniciar(scanner);
 				break;
 
 			}
 			case 2: {
-				// LOGGER.info(" SpringApplication :: digitou opção -> " + opcao);
+
 				funcionarioService.iniciar(scanner);
 				break;
 			}
 
 			case 3: {
-				// LOGGER.info(" SpringApplication :: digitou opção -> " + opcao);
+
 				unidadeTrabalhoService.iniciar(scanner);
 				break;
 			}
 			case 4: {
-				// LOGGER.info(" SpringApplication :: digitou opção -> " + opcao);
+
 				relatorioService.inicar(scanner);
 				break;
 			}

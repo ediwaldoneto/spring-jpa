@@ -3,6 +3,7 @@ package br.com.nt.springdata.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -32,11 +33,10 @@ public class Funcionario {
 	@JoinColumn(name = "cargo_id", nullable = false)
 	private Cargo cargo;
 	@Fetch(FetchMode.SELECT)
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "funcionarios_unidades", joinColumns = {
 			@JoinColumn(name = "fk_funcionario") }, inverseJoinColumns = { @JoinColumn(name = "fk_unidade") })
-
-	private List<UnidadeTrabalho> unidadesTrabalho;
+	private List<UnidadeTrabalho> unidadeTrabalhos;
 
 	public Integer getId() {
 		return id;
@@ -86,12 +86,12 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public List<UnidadeTrabalho> getUnidadesTrabalho() {
-		return unidadesTrabalho;
+	public List<UnidadeTrabalho> getUnidadeTrabalhos() {
+		return unidadeTrabalhos;
 	}
 
-	public void setUnidadesTrabalho(List<UnidadeTrabalho> unidadesTrabalho) {
-		this.unidadesTrabalho = unidadesTrabalho;
+	public void setUnidadeTrabalhos(List<UnidadeTrabalho> unidadeTrabalhos) {
+		this.unidadeTrabalhos = unidadeTrabalhos;
 	}
 
 }

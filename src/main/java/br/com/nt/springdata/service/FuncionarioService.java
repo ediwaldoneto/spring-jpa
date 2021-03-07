@@ -46,7 +46,7 @@ public class FuncionarioService {
 
 			}
 			case 2: {
-
+				deletar(scanner);
 				break;
 			}
 
@@ -102,6 +102,20 @@ public class FuncionarioService {
 			System.out.println("ERRO ->" + e.getMessage());
 		}
 
+	}
+
+	public void deletar(Scanner scanner) {
+
+		System.out.println("Informe o ID ");
+		Integer id = scanner.nextInt();
+		try {
+
+			funcionarioRepository.deleteById(id);
+			System.out.println("Registro deletado");
+
+		} catch (Exception e) {
+			System.out.println("ERRO -> " + e.getMessage());
+		}
 	}
 
 }

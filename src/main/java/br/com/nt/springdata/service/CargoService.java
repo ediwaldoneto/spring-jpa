@@ -20,6 +20,7 @@ public class CargoService {
 		while (system) {
 
 			System.out.println("\n");
+			System.out.println("    ## MENU CARGO ##");
 			System.out.println("  [ Qual a função deseja executar ]" + "\n");
 			System.out.println("  * 0 - Sair");
 			System.out.println("  * 1 - Salvar");

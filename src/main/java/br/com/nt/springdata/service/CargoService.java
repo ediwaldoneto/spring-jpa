@@ -9,6 +9,7 @@ import br.com.nt.springdata.repository.CargoRespository;
 @Service
 public class CargoService {
 
+	private boolean system = true;
 	private CargoRespository cargoRespository;
 
 	public CargoService(CargoRespository cargoRespository) {
@@ -16,8 +17,48 @@ public class CargoService {
 	}
 
 	public void iniciar(Scanner scanner) {
+		while (system) {
 
-		salvar(scanner);
+			System.out.println("\n");
+			System.out.println("  [ Qual a função deseja executar ]" + "\n");
+			System.out.println("  * 0 - Sair");
+			System.out.println("  * 1 - Salvar");
+			System.out.println("  * 2 - Deletar");
+			System.out.println("  * 3 - Atualizar");
+			System.out.println("  * 4 - Listar" + "\n");
+			Integer opcao = scanner.nextInt();
+
+			switch (opcao) {
+			case 1: {
+
+				salvar(scanner);
+				break;
+
+			}
+			case 2: {
+
+				deletar(scanner);
+				break;
+			}
+
+			case 3: {
+
+				atualizar(scanner);
+				break;
+			}
+			case 4: {
+
+				exibir();
+				break;
+			}
+
+			default:
+				system = false;
+
+			}
+
+		}
+
 	}
 
 	public void salvar(Scanner scanner) {
@@ -60,10 +101,11 @@ public class CargoService {
 	}
 
 	public void exibir() {
-		System.out.println("##### LISTA DE REGISTROS ######");
+		System.out.println("##### LISTA DE REGISTROS ######" + "\n");
 		Iterable<Cargo> descricao = cargoRespository.findAll();
 		for (Cargo cargo : descricao) {
 			System.out.println("Id " + cargo.getId() + " Desc " + cargo.getDescricao());
+
 		}
 	}
 

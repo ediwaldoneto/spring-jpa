@@ -1,8 +1,6 @@
 package br.com.nt.springdata;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +11,6 @@ import br.com.nt.springdata.service.UnidadeTrabalhoService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner {
-
-	private static final Logger LOGGER = Logger.getLogger(SpringDataApplication.class.getName());
 
 	private boolean system = true;
 	private final CargoService cargoService;
@@ -43,13 +39,12 @@ public class SpringDataApplication implements CommandLineRunner {
 
 		while (system) {
 			System.out.println("\n");
-			System.out.println("    Qual a função deseja executar " + "\n");
-			System.out.println("    0 - Sair");
-			System.out.println("    1 - Cargo");
-			System.out.println("    2 - Funcionario");
-			System.out.println("    3 - Unidade");
-			System.out.println("    4 - Relatorios");
-
+			System.out.println("  [ Qual a função deseja executar ]" + "\n");
+			System.out.println("  * 0 - Sair");
+			System.out.println("  * 1 - Cargo");
+			System.out.println("  * 2 - Funcionario");
+			System.out.println("  * 3 - Unidade");
+			System.out.println("  * 4 - Relatorios" + "\n");
 			Integer opcao = scanner.nextInt();
 
 			switch (opcao) {
@@ -78,7 +73,7 @@ public class SpringDataApplication implements CommandLineRunner {
 
 			default:
 				system = false;
-				LOGGER.info(" SpringApplication :: run :: system value :: -> " + system);
+
 			}
 		}
 	}

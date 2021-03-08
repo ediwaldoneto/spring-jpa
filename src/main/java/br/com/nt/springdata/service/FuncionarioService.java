@@ -29,6 +29,7 @@ public class FuncionarioService {
 	public void iniciar(Scanner scanner) {
 
 		while (system) {
+
 			System.out.println("\n");
 			System.out.println("    ## MENU FUNCIONARIO ##");
 			System.out.println("  [ Qual a função deseja executar ]" + "\n");
@@ -51,11 +52,11 @@ public class FuncionarioService {
 			}
 
 			case 3: {
-
+				atualizar(scanner);
 				break;
 			}
 			case 4: {
-
+				exibirLista();
 				break;
 			}
 
@@ -93,9 +94,10 @@ public class FuncionarioService {
 			funcionario.setDataContratacao(LocalDate.parse(data, formatter));
 			Optional<Cargo> cargo = cargoRespository.findById(id);
 			funcionario.setCargo(cargo.get());
+
 			funcionarioRepository.save(funcionario);
 
-			System.out.println("Registro");
+			System.out.println("Registro Salvo");
 
 		} catch (Exception e) {
 
@@ -115,6 +117,67 @@ public class FuncionarioService {
 
 		} catch (Exception e) {
 			System.out.println("ERRO -> " + e.getMessage());
+		}
+	}
+
+	public void exibirLista() {
+
+		System.out.println("#### LISTA DE REGISTROS ####" + "\n");
+
+		Iterable<Funcionario> resultado = funcionarioRepository.findAll();
+
+		try {
+
+			for (Funcionario funcionario : resultado) {
+
+				System.out.println(funcionario);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void atualizar(Scanner scanner) {
+
+		System.out.println("Informe o ID ");
+
+		Integer id = scanner.nextInt();
+		Optional<Funcionario> dados = funcionarioRepository.findById(id);
+
+		if (dados.isPresent()) {
+
+			System.out.println("Informe o nome");
+			String nome = scanner.next();
+
+			System.out.println("Informe CPF");
+			String cpf = scanner.next();
+
+			System.out.println("Informe salario");
+			double salario = scanner.nextDouble();
+
+			System.out.println("Cargo ID");
+			Integer idCargo = scanner.nextInt();
+
+			System.out.println("Data da contratacao");
+			String data = scanner.next();
+
+			Funcionario funcionario = new Funcionario();
+
+			funcionario.setId(id);
+			funcionario.setNome(nome);
+			funcionario.setCpf(cpf);
+			funcionario.setSalario(salario);
+			funcionario.setDataContratacao(LocalDate.parse(data, formatter));
+			Optional<Cargo> cargo = cargoRespository.findById(idCargo);
+			funcionario.setCargo(cargo.get());
+
+			funcionarioRepository.save(funcionario);
+
+			System.out.println("Registro Atualizado");
+
+		} else {
+
+			System.out.println("Registro nao encontrado");
 		}
 	}
 

@@ -1,11 +1,8 @@
 package br.com.nt.springdata.entities;
 
-import java.util.Collection;
+import java.util.List;
 
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,8 +17,8 @@ public class Cargo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
-	@OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Collection<Funcionario> funcionarios;
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios;
 
 	public Integer getId() {
 		return id;
@@ -39,11 +36,11 @@ public class Cargo {
 		this.descricao = descricao;
 	}
 
-	public Collection<Funcionario> getFuncionarios() {
+	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 
-	public void setFuncionarios(Collection<Funcionario> funcionarios) {
+	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 

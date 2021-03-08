@@ -1,9 +1,8 @@
 package br.com.nt.springdata.entities;
 
-import java.util.Collection;
+import java.util.List;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,7 +21,7 @@ public class UnidadeTrabalho {
 	private String descricao;
 	private String endereco;
 	@ManyToMany(mappedBy = "unidadeTrabalhos", fetch = FetchType.EAGER)
-	private Collection<Funcionario> funcionarios;
+	private List<Funcionario> funcionarios;
 
 	public Integer getId() {
 		return id;
@@ -48,11 +47,11 @@ public class UnidadeTrabalho {
 		this.endereco = endereco;
 	}
 
-	public Collection<Funcionario> getFuncionarios() {
+	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 
-	public void setFuncionarios(Collection<Funcionario> funcionarios) {
+	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 
